@@ -2,7 +2,9 @@
   <div id="app">
     <div id="container">
       <h1>TAROT</h1>
-      <router-view/>
+      <transition mode="out-in">
+        <router-view/>
+      </transition>
     </div>
   </div>
 </template>
@@ -19,7 +21,8 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
-    background-image: url("../static/images/background-all.png"), radial-gradient(#1d001d, #3e003e);
+    /*background-image: url("../static/images/background-all.png"), radial-gradient(#1d001d, #3e003e);*/
+    background-image: radial-gradient(#1f0633, #2e0011);
     background-size: contain, contain;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -55,7 +58,8 @@ export default {
     bottom: 0;
     right: 0;
     z-index: 0;
-    background-image: url("../static/images/background-all.png"), radial-gradient(#1d001d, #3e003e);
+    /*background-image: url("../static/images/background-all.png"), radial-gradient(#1d001d, #3e003e);*/
+    background-image: radial-gradient(#1f0633, #2e0011);
     background-size: contain, contain;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -82,5 +86,29 @@ export default {
 
   h1::first-letter {
     font-size: 100pt;
+  }
+
+  .v-enter {
+    opacity: 0;
+  }
+
+  .v-enter-active {
+    transition: 0.5s;
+  }
+
+  .v-enter-to {
+    opacity: 1;
+  }
+
+  .v-leave {
+    opacity: 1;
+  }
+
+  .v-leave-to {
+    opacity: 0;
+  }
+
+  .v-leave-active {
+    transition: 0.5s;
   }
 </style>
